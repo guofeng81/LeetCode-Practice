@@ -4,11 +4,6 @@ public class LeetCode269 {
     // Alien Dictionary
     public String alienOrder(String[] words) {
 
-        // two words to find the order
-        // t -> f
-        // r -> t
-        // you need to understand the question first to solve this problem
-
         int[] indegree = new int[26];
         Map<Character, Set<Character>> graph = new HashMap<>();
         buildGraph(graph, words, indegree);
@@ -20,7 +15,6 @@ public class LeetCode269 {
         Queue<Character> q = new LinkedList<>();
 
         int size = graph.size();
-
         for (char c : graph.keySet()) {
             if (indegree[c - 'a'] == 0) {
                 sb.append(c);
@@ -43,7 +37,7 @@ public class LeetCode269 {
             }
         }
 
-        return size == sb.length() ? sb.toString() : "";
+        return size == sb.length() ? sb.toString() : ""; // understand why here is very important to understand Topology
     }
 
     private void buildGraph(Map<Character, Set<Character>> graph, String[] words, int[] indegree) {
@@ -57,7 +51,8 @@ public class LeetCode269 {
 
         for (int i = 1; i < n; i++) {
             String first = words[i - 1];
-            String second = words[i];
+            String second = words[i]; // understand why only compares words 0 and 1, 1 and 2, 2 and 3 words is also
+                                      // important
 
             int min = Math.min(first.length(), second.length());
             for (int j = 0; j < min; j++) {
@@ -69,13 +64,37 @@ public class LeetCode269 {
                         indegree[in - 'a']++;
                     }
 
-                    break;
+                    break; // why break here, try to understand here is very important
                 }
             }
         }
     }
 
+    // LeetCode 953 Verifying an Alien Dictionary
     public boolean isAlienSorted(String[] words, String order) {
+        // based on the order string to create
+        int[] map = new int[26];
+        // map stores the number decides the order of each character
+        for (int i = 0; i < order.length(); i++) {
+            map[order.charAt(i) - 'a'] = i;
+        }
+
+        // compare each word
+        for (int i = 1; i < words.length; i++) {
+            String first = words[i - 1];
+            String second = words[i];
+
+            int min = Math.min(first.length(), second.length());
+            for (int j = 0; j < min; j++) {
+                if (map[first.charAt(j) - 'a'] > map[second.charAt(j) - 'a']) {
+                    return false;
+                } else if (map[first.charAt(j) - 'a'] < map[second.charAt(j) - 'a']) {
+                    break;
+                } else if (j == min - 1 && first.length() > second.length()) {
+                    return false;
+                }
+            }
+        }
 
         return true;
     }
