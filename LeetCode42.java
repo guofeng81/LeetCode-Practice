@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class LeetCode42 {
     public int trap(int[] height) {
 
