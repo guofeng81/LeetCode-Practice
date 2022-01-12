@@ -98,5 +98,4 @@ public class LeetCode269 {
 
         return true;
     }
-
 }
