@@ -21,7 +21,8 @@ public class LeetCode473 {
         if (groupId == 4)
             return true;
         if (tempSum == target)
-            return helper(0, matchsticks, 0, target, visited, groupId + 1); // increase the group until it reaches 4
+            return helper(0, matchsticks, 0, target, visited, groupId + 1); // increase the group until it reaches 4，
+                                                                            // why pos is 0??
         if (tempSum > target)
             return false;
 
