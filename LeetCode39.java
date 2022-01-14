@@ -14,7 +14,7 @@ public class LeetCode39 {
 
         if (index == nums.length) {
             return;
-        }
+        } // Combination Sum II don't need this statement.
 
         if (tempSum > target) {
             return;
@@ -26,10 +26,8 @@ public class LeetCode39 {
         }
 
         for (int i = index; i < nums.length; i++) {
-            tempSum += nums[i];
             tempResult.add(nums[i]);
-            helper(i, nums, tempSum, target, tempResult, result);
-            tempSum -= nums[i];
+            helper(i, nums, tempSum + nums[i], target, tempResult, result);
             tempResult.remove(tempResult.size() - 1);
         }
     }
