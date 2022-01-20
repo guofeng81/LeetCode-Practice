@@ -1,7 +1,7 @@
 import java.util.*;
-
 public class LeetCode40 {
-    // Combination Sum II
+    // Combination Sum II 
+    
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> tempResult = new ArrayList<>();
@@ -11,7 +11,7 @@ public class LeetCode40 {
         helper(0, candidates, 0, target, tempResult, result);
         return result;
     }
-    
+     
     private void helper(int index, int[] nums, int tempSum, int target, List<Integer> tempResult, List<List<Integer>> result){   
         // 为什么这里不能有 if(index == nums.length) return; ??
         if(tempSum > target){

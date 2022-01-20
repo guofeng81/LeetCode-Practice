@@ -1,5 +1,6 @@
 public class LeetCode36 {
     // Question: Valid Sudoku
+
     public boolean isValidSudoku(char[][] board) {
         for (int row = 0; row < 9; row++) {
             boolean[] taken = new boolean[9]; // you could also use map[128] to solve this problem.

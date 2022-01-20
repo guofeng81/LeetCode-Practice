@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class LeetCode332 {
+
     // 这个题目去理解为什么用PriorityQueue<String>，而非List<String>. 这里是可以用List<String>
     // 如果题目没有要求字母顺序小的先走。为什么用LinkedList<> 是因为你每次都要加到头上 addFirst(),
     // 如果不想用LinkedList，你需要一个stack
