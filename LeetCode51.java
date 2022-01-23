@@ -1,10 +1,6 @@
 import java.util.*;
 
 public class LeetCode51 {
-    // Java naming convention:
-    // class: First character Capitalized
-    // private field: lower case
-    // method name:
     public List<List<String>> solveNQueens(int n) {
         // row col
         char[][] board = new char[n][n];
@@ -35,7 +31,6 @@ public class LeetCode51 {
                 board[rowIndex][i] = '.';
             }
         }
-
     }
 
     private List<String> convertToString(char[][] board) {
