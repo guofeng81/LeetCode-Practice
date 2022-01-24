@@ -2,7 +2,6 @@ import java.util.*;
 
 public class LeetCode51 {
     public List<List<String>> solveNQueens(int n) {
-        // row col
         char[][] board = new char[n][n];
         List<List<String>> result = new ArrayList<>();
 
@@ -17,7 +16,6 @@ public class LeetCode51 {
         }
     }
 
-    // how to convert 2 d array into List<String>
     private void backtrack(int rowIndex, char[][] board, List<List<String>> result, int n) {
         if (rowIndex == n) {
             result.add(new ArrayList<>(convertToString(board)));
@@ -69,3 +67,4 @@ public class LeetCode51 {
 
         return true;
     }
+}
