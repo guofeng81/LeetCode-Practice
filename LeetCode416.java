@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class LeetCode416 {
     // Solution 2: Time O(N^2) Space: O(N^2)
     public boolean canPartition(int[] nums) {
